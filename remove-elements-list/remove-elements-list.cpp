@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     list<string> input = { "red", "green", "blue", "gray", "black" };
-
+    list<string>::const_iterator itr = input.begin();
     list<string>::const_iterator itr = input.cbegin();
     while (itr != input.cend())
     {

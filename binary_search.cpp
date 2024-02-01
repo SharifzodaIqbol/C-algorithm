@@ -7,14 +7,23 @@
 
 using namespace std;
 
+
+template<class ForwardIt,class T>
+bool binary_search_(ForwardIt first, ForwardIt last, const T& value) {
+
+	first = lower_bound(first, last, value);
+
+	return (!(first == last) and !(value < *first));
+}
+
 int main() {
 
-	vector<int> vt_1{ 1,3,4,5,9 };
+	vector<int> vt_1{ 1,3,4,5,8 };
 	vector<int> vt_2{ 1,2,3 };
 
 	for (const auto needle : vt_2) {
 		cout << "Searching for " << needle << "\n";
-		if (binary_search(vt_1.begin(), vt_1.end(), needle)) {
+		if (binary_search_(vt_1.begin(), vt_1.end(), needle)) {
 			cout << "Found "<<needle<<"\n";
 		}
 		else {
